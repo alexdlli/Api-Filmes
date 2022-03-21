@@ -1,26 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Container, MovieList, Movie } from './styles';
 
 function Home() {
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=en-US&page=1`)
+      .then(respone => respone.json())
+      .then(data => setMovies(data.results))
 
-  const movies = [
-    {
-      id: 1,
-      title: 'spider-man',
-      image_url: 'https://img.elo7.com.br/product/zoom/3E882CA/big-poster-filme-homem-aranha-sem-volta-para-casa-90x60-cm-1-poster-geek.jpg'
-    },
-    {
-      id: 2,
-      title: 'spider-man',
-      image_url: 'https://img.elo7.com.br/product/zoom/3E882CA/big-poster-filme-homem-aranha-sem-volta-para-casa-90x60-cm-1-poster-geek.jpg'
-    },
-    {
-      id: 3,
-      title: 'spider-man',
-      image_url: 'https://img.elo7.com.br/product/zoom/3E882CA/big-poster-filme-homem-aranha-sem-volta-para-casa-90x60-cm-1-poster-geek.jpg'
-    }
-  ]
+  }, [])
+
+  const [movies, setMovies] = useState([]);
+  const image_path = 'https://image.tmdb.org/t/p/w500/'
+  console.log(movies)
 
   return (
     <Container>
@@ -31,7 +23,7 @@ function Home() {
           return (
             <Movie key={movie.id}>
               <a href="/">
-                <img src={movie.image_url} alt={movie.title} />
+                <img src={`${image_path}${movie.poster_path}`} alt={movie.title} />
               </a>
               <span>{movie.title}</span>
             </Movie>
