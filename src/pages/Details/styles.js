@@ -11,6 +11,10 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+      @media(max-width: 800px) {
+      flex-direction: column;
+    }
   }
 
   img {
@@ -24,6 +28,11 @@ export const Container = styled.div`
     align-items: flex-start;
     margin-left: 4rem;
     max-width: 50%;
+
+    @media(max-width: 800px) {
+    align-items: center;
+    margin-left: 0;
+  }
 }
 
   button {
@@ -55,6 +64,8 @@ export const Container = styled.div`
   .release_date {
     opacity: 0.5;
   }
+
+
 `;
 
 

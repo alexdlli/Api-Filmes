@@ -24,7 +24,6 @@ function Home() {
 
   function handleChangeNextPage() {
     setPage(page + 1)
-    console.log(page)
   }
 
   return (
