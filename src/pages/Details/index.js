@@ -1,21 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-// import { Container } from './styles';
+import { Link, useParams } from 'react-router-dom'
+import Similarly from '../../components/Similars';
+import { Container } from './styles';
 
 function Details() {
-
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState({});
+  const image_path = 'https://image.tmdb.org/t/p/w500/'
   const { id } = useParams()
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&page=1`)
-      .then(respone => respone.json())
-      .then(data =>
-        setMovie(data))
-  }, [])
+      .then(response => response.json())
+      .then(data => {
+        const { title, overview, poster_path, release_date } = data
+
+        const movie = {
+          id,
+          title,
+          overview,
+          image: `${image_path}${poster_path}`,
+          releaseDate: release_date,
+        }
+
+        setMovie(movie)
+      })
+  }, [id])
 
   return (
-    <h1>{JSON.stringify(movie)}</h1>
+    <Container>
+      <div className="movie">
+        <img src={movie.image} alt={movie.overview} />
+        <div className="details">
+          <h1>{movie.title}</h1>
+          <span>Sinopse: {movie.overview}</span>
+          <span className='release_date'>Data de Lançamento: {movie.releaseDate}</span>
+          <Link to='/' >
+            <button>Go Home</button>
+          </Link>
+        </div>
+      </div>
+
+      <Similarly movieId={movie.id} />
+    </Container>
   );
 }
 
