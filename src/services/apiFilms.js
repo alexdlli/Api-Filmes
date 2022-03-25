@@ -9,7 +9,7 @@ export const getMovies = (page = 1) => {
 };
 
 export const getMovieSimilarly = (id) => {
-  return api.get(`/movie/${id}/similar?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&page=1`).then(response => response.data)
+  return api.get(`/movie/${id}/similar?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&`).then(response => response.data)
 };
 
 export const getMovieDetails = (id) => {

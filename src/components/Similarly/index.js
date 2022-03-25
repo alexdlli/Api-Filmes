@@ -2,8 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Movie } from '../../pages/Home/styles';
 import { getMovieSimilarly } from '../../services/apiFilms';
-
-
+import { useQuery } from 'react-query'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -14,7 +13,6 @@ function Similarly() {
   const [isDesktop, setDesktop] = useState(true);
   const minDesktopSize = 1300;
   const { id } = useParams()
-  const [movies, setMovies] = useState([]);
   const image_path = 'https://image.tmdb.org/t/p/w500/';
 
   function useWindowSize() {
@@ -33,18 +31,19 @@ function Similarly() {
   const [width] = useWindowSize()
 
   useEffect(() => {
-
-    getMovieSimilarly(id).then((data) => {
-      setMovies(data.results);
-    })
-
     if (minDesktopSize > width) {
       setDesktop(false)
     } else {
       setDesktop(true)
     }
+  }, [id, width])
 
-  }, [id, movies, width])
+  const { data, isLoading } = useQuery([`Similarly/${id}`], () => getMovieSimilarly(id));
+  const movies = data?.results
+
+  if (isLoading || !movies) {
+    return <h1>Loading...</h1>
+  }
 
   return (
     <Container>

@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { getMovies } from '../../services/apiFilms';
-
+import { useQuery } from 'react-query'
 import { Container, MovieList, Movie, Pagination } from './styles';
 
 function Home() {
   const [page, setPage] = useState(1)
-  const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const image_path = 'https://image.tmdb.org/t/p/w500/'
 
-  useEffect(() => {
-    setIsLoading(true)
-    getMovies(page).then((data) => {
-      setMovies(data.results)
-    }).finally(() => setIsLoading(false))
-  }, [page])
+  const { data, isLoading } = useQuery(["movies"], () => getMovies(page));
+  const movies = data?.results
+  console.log(movies)
 
   function handleChangeBackPage() {
     if (page !== 1) {
@@ -29,7 +24,7 @@ function Home() {
     setPage(page + 1)
   }
 
-  if (isLoading || !movies) {
+  if (isLoading) {
     return <h1>Loading...</h1>
   }
 
