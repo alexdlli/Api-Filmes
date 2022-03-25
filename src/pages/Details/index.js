@@ -7,10 +7,12 @@ import { getMovieDetails } from '../../services/apiFilms';
 
 function Details() {
   const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const image_path = 'https://image.tmdb.org/t/p/w500/'
   const { id } = useParams()
 
   useEffect(() => {
+    setIsLoading(true)
     getMovieDetails(id).then((data) => {
       const { title, overview, poster_path, release_date } = data
 
@@ -24,7 +26,11 @@ function Details() {
 
       setMovie(movie)
 
-    })
+    }).finally(() => setIsLoading(false))
+
+    if (isLoading || !movie) {
+      return <h1>Loading...</h1>
+    }
 
   }, [id])
 

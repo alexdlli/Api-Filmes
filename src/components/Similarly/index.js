@@ -33,6 +33,7 @@ function Similarly() {
   const [width] = useWindowSize()
 
   useEffect(() => {
+
     getMovieSimilarly(id).then((data) => {
       setMovies(data.results);
     })

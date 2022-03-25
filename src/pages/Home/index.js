@@ -7,12 +7,14 @@ import { Container, MovieList, Movie, Pagination } from './styles';
 function Home() {
   const [page, setPage] = useState(1)
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const image_path = 'https://image.tmdb.org/t/p/w500/'
 
   useEffect(() => {
+    setIsLoading(true)
     getMovies(page).then((data) => {
       setMovies(data.results)
-    })
+    }).finally(() => setIsLoading(false))
   }, [page])
 
   function handleChangeBackPage() {
@@ -25,6 +27,10 @@ function Home() {
 
   function handleChangeNextPage() {
     setPage(page + 1)
+  }
+
+  if (isLoading || !movies) {
+    return <h1>Loading...</h1>
   }
 
   return (
