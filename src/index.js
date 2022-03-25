@@ -8,7 +8,7 @@ import Details from './pages/Details';
 
 import './global.css'
 
-const client = new QueryClient({
+export const client = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 10000,
