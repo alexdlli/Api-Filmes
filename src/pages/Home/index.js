@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
+import { getMovies } from '../../services/apiFilms';
 
 import { Container, MovieList, Movie, Pagination } from './styles';
 
@@ -9,9 +10,9 @@ function Home() {
   const image_path = 'https://image.tmdb.org/t/p/w500/'
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&page=${page}`)
-      .then(response => response.json())
-      .then(data => setMovies(data.results))
+    getMovies(page).then((data) => {
+      setMovies(data.results)
+    })
   }, [page])
 
   function handleChangeBackPage() {

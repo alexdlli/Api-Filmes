@@ -1,6 +1,8 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Movie } from '../../pages/Home/styles';
+import { getMovieSimilarly } from '../../services/apiFilms';
+
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -14,7 +16,6 @@ function Similarly() {
   const { id } = useParams()
   const [movies, setMovies] = useState([]);
   const image_path = 'https://image.tmdb.org/t/p/w500/';
-  const isMountedRef = useRef(null);
 
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
@@ -32,12 +33,9 @@ function Similarly() {
   const [width] = useWindowSize()
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&page=1`)
-      .then(response => response.json())
-      .then(
-        data => setMovies(data.results),
-        isMountedRef.current = false,
-      )
+    getMovieSimilarly(id).then((data) => {
+      setMovies(data.results);
+    })
 
     if (minDesktopSize > width) {
       setDesktop(false)

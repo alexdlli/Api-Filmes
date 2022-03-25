@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
-import Similarly from '../../components/Similars';
+import Similarly from '../../components/Similarly';
 import { Container } from './styles';
+import { getMovieDetails } from '../../services/apiFilms';
+
 
 function Details() {
   const [movie, setMovie] = useState({});
@@ -9,21 +11,21 @@ function Details() {
   const { id } = useParams()
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=pt-BR&page=1`)
-      .then(response => response.json())
-      .then(data => {
-        const { title, overview, poster_path, release_date } = data
+    getMovieDetails(id).then((data) => {
+      const { title, overview, poster_path, release_date } = data
 
-        const movie = {
-          id,
-          title,
-          overview,
-          image: `${image_path}${poster_path}`,
-          releaseDate: release_date,
-        }
+      const movie = {
+        id,
+        title,
+        overview,
+        image: `${image_path}${poster_path}`,
+        releaseDate: release_date,
+      }
 
-        setMovie(movie)
-      })
+      setMovie(movie)
+
+    })
+
   }, [id])
 
   return (
