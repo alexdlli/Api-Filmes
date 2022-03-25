@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Movie } from '../../pages/Home/styles';
 import { getMovieSimilarly } from '../../services/apiFilms';
@@ -8,25 +8,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { Container } from './styles';
+import useWindowSize from '../../services/useWindowSize';
 
 function Similarly() {
   const [isDesktop, setDesktop] = useState(true);
   const minDesktopSize = 1300;
   const { id } = useParams()
   const image_path = 'https://image.tmdb.org/t/p/w500/';
-
-  function useWindowSize() {
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-      function updateSize() {
-        setSize([window.innerWidth, window.innerHeight]);
-      }
-      window.addEventListener('resize', updateSize);
-      updateSize();
-      return () => window.removeEventListener('resize', updateSize);
-    }, []);
-    return size;
-  }
 
   const [width] = useWindowSize()
 
