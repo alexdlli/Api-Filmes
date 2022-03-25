@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { getMovies } from '../../services/apiFilms';
 import { useQuery } from 'react-query'
 import { Container, MovieList, Movie, Pagination } from './styles';
-import { client } from '../..';
 
 function Home() {
   const [page, setPage] = useState(1)
