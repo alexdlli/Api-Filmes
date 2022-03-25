@@ -8,7 +8,13 @@ import Details from './pages/Details';
 
 import './global.css'
 
-const client = new QueryClient();
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 10000,
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
