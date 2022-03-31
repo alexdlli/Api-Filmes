@@ -4,7 +4,14 @@
 
 ### Application Details
 
-Link: https://api-filmes-brown.vercel.app/
+
+- O projeto foi feito pela Giovanna Moeller em seu canal do Youtube o Girl Coding
+
+  - Link do canal Girl Coding: https://www.youtube.com/c/GirlCoding
+
+  - Linkedin Alex: https://www.linkedin.com/in/alex-dll/
+
+  - Site hospedado: https://api-filmes-brown.vercel.app/
 
 ## How to run this project
 
@@ -37,4 +44,9 @@ Start the aplication
 
 ---
 
-🚀Foguete não tem ré
+# Desenvolvedor:
+
+| [<img src="https://avatars.githubusercontent.com/u/79429654?v=4" width="75px;"/>](https://github.com/giovanifranz) |
+| :-: |
+|[Linkedin](https://www.linkedin.com/in/giovanifranz)|
+|[Email](mailto:giovanifranz151@gmail.com)|
