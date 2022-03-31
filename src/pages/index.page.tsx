@@ -1,5 +1,5 @@
-import { useState, useEffect, Fragment } from "react";
-import { Movies, Movie } from "../types";
+import { Fragment } from "react";
+import { Movies } from "../types";
 import { getMovies } from "../utils/http";
 import { useQuery } from "react-query";
 import { Pagination, MovieList, Heading } from "../components";

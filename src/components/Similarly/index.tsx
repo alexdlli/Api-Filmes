@@ -1,13 +1,12 @@
 import { useEffect, useState, Key, Fragment } from "react";
-import { Movie, Image } from "../../types";
-import { MovieItem } from "../MovieItem";
-import { getMovieSimilarly } from "../../utils/http";
 import { useQuery } from "react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Container } from "./styles";
 import "swiper/css";
-import { Heading } from "../Heading";
 
+import { MovieItem, Heading } from "../../components";
+import { Container } from "./styles";
+import { Movie, Image } from "../../types";
+import { getMovieSimilarly } from "../../utils/http";
 import { useWindowsWidth } from "../../hooks";
 
 interface Props {
