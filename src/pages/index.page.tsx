@@ -2,8 +2,18 @@ import { Fragment } from "react";
 import { Movies } from "../types";
 import { getMovies } from "../utils/http";
 import { useQuery } from "react-query";
-import { Pagination, MovieList, Heading } from "../components";
+import { MovieList, Heading } from "../components";
 import { usePage } from "../hooks";
+import dynamic from "next/dynamic";
+import { useWindowsIsDesktop } from "../hooks";
+
+const Pagination = dynamic<EmptyObject>(() =>
+  import("../components/Pagination").then((module) => module.Pagination)
+);
+
+const InfiniteScroll = dynamic<EmptyObject>(() =>
+  import("../components/InfiniteScroll").then((module) => module.InfiniteScroll)
+);
 
 interface Props {
   movies: Movies;
@@ -15,6 +25,8 @@ export default function Home({ movies }: Props) {
     initialData: movies,
   });
 
+  const isDesktop = useWindowsIsDesktop();
+
   return (
     <Fragment>
       {data === undefined ? (
@@ -23,7 +35,7 @@ export default function Home({ movies }: Props) {
         <Fragment>
           <Heading>Movies</Heading>
           <MovieList movies={data.results} />
-          <Pagination />
+          {isDesktop ? <Pagination /> : <InfiniteScroll />}
         </Fragment>
       )}
     </Fragment>

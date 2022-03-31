@@ -1,4 +1,4 @@
-import { useEffect, useState, Key, Fragment } from "react";
+import { Key, Fragment } from "react";
 import { useQuery } from "react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -7,25 +7,14 @@ import { MovieItem, Heading } from "../../components";
 import { Container } from "./styles";
 import { Movie, Image } from "../../types";
 import { getMovieSimilarly } from "../../utils/http";
-import { useWindowsWidth } from "../../hooks";
+import { useWindowsIsDesktop } from "../../hooks";
 
 interface Props {
   id: number;
 }
 
 function Similarly({ id }: Props) {
-  const [isDesktop, setDesktop] = useState(true);
-  const minDesktopSize = 1300;
-
-  const width = useWindowsWidth();
-
-  useEffect(() => {
-    if (minDesktopSize > width) {
-      setDesktop(false);
-    } else {
-      setDesktop(true);
-    }
-  }, [id, width]);
+  const isDesktop = useWindowsIsDesktop();
 
   const { data, isLoading } = useQuery(["similarly", id], () =>
     getMovieSimilarly(id)
@@ -63,3 +52,4 @@ function Similarly({ id }: Props) {
 }
 
 export { Similarly };
+export type { Props as SimilarlyProps };
