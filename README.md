@@ -1,52 +1,94 @@
+
 # Welcome to API-Filmes
 
-- Projeto desenvolvido tendo como base: https://github.com/Alex-dll/Api-Filmes
+
+
+- A website to find the most popular movies of the moment
+
+
 
 ### Application Details
 
 
-- O projeto foi feito pela Giovanna Moeller em seu canal do Youtube o Girl Coding
 
-  - Link do canal Girl Coding: https://www.youtube.com/c/GirlCoding
+To see the app click [here](https://api-filmes-seven.vercel.app/)
 
-  - Linkedin Alex: https://www.linkedin.com/in/alex-dll/
 
-  - Site hospedado: https://api-filmes-brown.vercel.app/
+
+#### Behaviours
+
+
+
+![Mockup 1](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Mockup%202.png?raw=true)
+
+
+
+![Mockup 2](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Mockup%201.png?raw=true)
+
+
+
+![Behaviors](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Behaviours.gif?raw=true)
+
+
 
 ## How to run this project
+
+
+Clone this repo
+
+```bash
+
+git clone https://github.com/Alex-dll/Api-Filmes
+
+```
 
 Go to project directory
 
 ```bash
-  cd my-project
+
+cd my-project
+
 ```
 
 Install the dependencies
 
 ```bash
-  npm install | yarn install
+
+npm install | yarn install
+
 ```
 
 Start the aplication
 
 ```bash
-  npm run dev | yarn dev
+
+npm run dev | yarn dev
+
 ```
 
 ## 🛠 Used Tools ⌨
 
-- NextJS
+
+- NextJS is the main protagonist, he is responsible for the core of the application.
+
 - ReactJS
-- Typescript
+
+- Javascript
+
 - Styled-Components
+
 - React-Query
+
 - Axios
 
 ---
-
-# Desenvolvedor:
+# Contribuições:
 
 | [<img src="https://avatars.githubusercontent.com/u/79429654?v=4" width="75px;"/>](https://github.com/giovanifranz) |
 | :-: |
 |[Linkedin](https://www.linkedin.com/in/giovanifranz)|
 |[Email](mailto:giovanifranz151@gmail.com)|
+
+
+
+🚀Foguete não tem ré
