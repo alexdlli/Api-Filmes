@@ -1,26 +1,19 @@
 # Welcome to API-Filmes
 
-- A website to find the most popular movies of the moment
+- Projeto desenvolvido tendo como base: https://github.com/Alex-dll/Api-Filmes
 
 ### Application Details
 
-To see the app click [here](https://api-filmes-seven.vercel.app/)
 
-#### Behaviours
+- O projeto foi feito pela Giovanna Moeller em seu canal do Youtube o Girl Coding
 
-![Mockup 1](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Mockup%202.png?raw=true)
+  - Link do canal Girl Coding: https://www.youtube.com/c/GirlCoding
 
-![Mockup 2](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Mockup%201.png?raw=true)
+  - Linkedin Alex: https://www.linkedin.com/in/alex-dll/
 
-![Behaviors](https://github.com/Alex-dll/Api-Filmes/blob/master/public/Behaviours.gif?raw=true)
+  - Site hospedado: https://api-filmes-brown.vercel.app/
 
 ## How to run this project
-
-Clone this repo
-
-```bash
-  git clone https://github.com/Alex-dll/Api-Filmes
-```
 
 Go to project directory
 
@@ -42,13 +35,18 @@ Start the aplication
 
 ## 🛠 Used Tools ⌨
 
-- NextJS is the main protagonist, he is responsible for the core of the application.
+- NextJS
 - ReactJS
-- Javascript
+- Typescript
 - Styled-Components
 - React-Query
 - Axios
 
 ---
 
-🚀Foguete não tem ré
+# Desenvolvedor:
+
+| [<img src="https://avatars.githubusercontent.com/u/79429654?v=4" width="75px;"/>](https://github.com/giovanifranz) |
+| :-: |
+|[Linkedin](https://www.linkedin.com/in/giovanifranz)|
+|[Email](mailto:giovanifranz151@gmail.com)|
