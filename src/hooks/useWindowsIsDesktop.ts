@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 
-export function useWindowsWidth() {
+export function useWindowsIsDesktop() {
   const [width, setWidth] = useState(0);
   useLayoutEffect(() => {
     function updateSize() {
@@ -10,5 +10,5 @@ export function useWindowsWidth() {
     updateSize();
     return () => window.removeEventListener("resize", updateSize);
   }, []);
-  return width;
+  return width > 1280 ? true : false;
 }

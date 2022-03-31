@@ -1,2 +1,2 @@
 export * from "./usePage";
-export * from "./useWindowsWidth";
+export * from "./useWindowsIsDesktop";
